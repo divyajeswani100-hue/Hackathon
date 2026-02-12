@@ -84,6 +84,10 @@ async def chat_endpoint(request: ChatRequest):
 async def health_check():
     return {"status": "healthy"}
 
+@app.api_route("/", methods=["GET", "POST"])
+async def root():
+    return {"message": "EmpaAI Backend is running. Use /chat for API requests."}
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
