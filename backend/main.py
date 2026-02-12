@@ -80,7 +80,7 @@ async def chat_endpoint(request: ChatRequest):
         print(f"ERROR GENERATING CONTENT: {e}") # Debugging
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.get("/health")
+@app.api_route("/health", methods=["GET", "HEAD"])
 async def health_check():
     return {"status": "healthy"}
 
